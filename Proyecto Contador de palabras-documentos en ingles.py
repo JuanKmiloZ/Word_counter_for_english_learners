@@ -1,28 +1,21 @@
 
 #Contador de palabras
 
-# pip install -U spacy
-# python -m spacy 
-import spacy
+# Insertar documents
+texto = input("Ingrese el texto: ")
 
-# Descargar y Cargar en_core_web_sm
-nlp = spacy.load("en_core_web_sm")
-
-# Process whole documents
-text = input("Ingrese el texto: ")
-doc = nlp(text)
-
-# Los caracteres que no contamos como palabras
-quitar = ",;:.\n!\"'"
-for caracter in quitar:
-    text = text.replace(caracter,
+# Quitar caracteres que no son palabras
+excluir = ",;:.\n!\"'"
+for caracter in excluir:
+    texto = texto.replace(caracter,
                           "")  # Remplazarlo por "nada"; es decir, removerlo
 
 
 # Convertimos toda palabra a minúscula
-text = text.lower()
-# Las palabras están separadas por un espacio así que convertimos la cadena a arreglo
-palabras = text.split(" ")
+texto = texto.lower()
+
+# Las palabras se separan con split
+palabras = texto.split(" ")
 
 # Ahora vamos a contar las palabras creando un diccionario. En este caso la clave del diccionario
 # será la palabra, y el valor será el conteo
